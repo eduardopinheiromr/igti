@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabalho Prático Módulo 1</title>
+    <style>
+      html,
+      body {
+        margin-top: 7%;
+        padding: 0;
+        font-family: SEGOE UI;
+        display: flex;
+        justify-content: center;
+        background: whitesmoke;
+      }
+
+      .quadrado {
+        height: 100px;
+        width: 100px;
+        border: 1px solid black;
+        margin-left: 20px;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+      }
+      .display {
+        width: 30px;
+        position: relative;
+        bottom: 6px;
+        margin-bottom: 10px;
+        color: black;
+        background: whitesmoke;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <span>Red</span><br />
+        <input type="range" min="0" max="255" id="red" onchange="changeRed()" />
+        <input
+          type="text"
+          class="display"
+          id="display-red"
+          readonly="true"
+          disabled
+        />
+        <br />
+        <span>Green</span><br />
+        <input type="range" min="0" max="255" id="green" on="changeGreen()" />
+        <input type="text" class="display" id="display-green" readonly="true" />
+        <br />
+        <span>Blue</span><br />
+        <input
+          type="range"
+          min="0"
+          max="255"
+          id="blue"
+          onchange="changeBlue()"
+        />
+        <input type="text" class="display" id="display-blue" readonly="true" />
+        <br />
+      </div>
+      <div class="quadrado"><span id="rgbtext"></span></div>
+    </div>
+    <script>
+      var red = document.querySelector('#red');
+      var green = document.querySelector('#green');
+      var blue = document.querySelector('#blue');
+      var displayRed = document.querySelector('#display-red');
+      var displayGreen = document.querySelector('#display-green');
+      var displayBlue = document.querySelector('#display-blue');
+      var redValue = 0;
+      var greenValue = 0;
+      var blueValue = 0;
+      var quadrado = document.querySelector('.quadrado');
+      var rgbtext = document.querySelector('#rgbtext');
+
+      function changeRed() {
+        redValue = red.value;
+        displayRed.value = redValue;
+        mudaCor();
+      }
+
+      function changeGreen() {
+        greenValue = green.value;
+        displayGreen.value = greenValue;
+        mudaCor();
+      }
+
+      function changeBlue() {
+        blueValue = blue.value;
+        displayBlue.value = blueValue;
+        mudaCor();
+      }
+      function mudaCor() {
+        quadrado.style.background = `rgb(${redValue},${greenValue},${blueValue})`;
+      }
+    </script>
+  </body>
+</html>
