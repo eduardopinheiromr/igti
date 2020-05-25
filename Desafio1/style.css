@@ -1,0 +1,115 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: SEGOE UI;
+}
+
+h1{
+  color: darkblue;
+}
+
+#divpesquisa{
+  min-height: 50px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  box-shadow: 1px 1px 30px lightgray;
+  border: 0 none;
+  outline: 0;
+  transition: 0.5s;
+  border-radius: 30px;
+}
+
+#user{
+  background: rgb(227, 248, 255);
+  padding-left: 30px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  width: 70%;
+  border: none;
+  transition: 0.5s;
+}
+
+#user:focus{
+  box-shadow: 1px 1px 30px lightgray;
+  border: 0 none;
+  outline: 0;
+  transition: 0.5s;
+}
+
+#user:hover{
+  box-shadow: 1px 1px 30px lightgray;
+  border: 0 none;
+  outline: 0;
+  transition: 0.5s;
+}
+
+#search{
+  background: lightblue;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  width: 30%;
+  border: none;
+}
+
+#search:focus{
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  transition: 0.5s;
+}
+#search:hover{
+  box-shadow: 1px 1px 30px lightgray;
+  border: 0 none;
+  outline: 0;
+  transition: 0.5s;
+}
+
+#divresultado{
+  width: 90%;
+  padding: 30px;
+  border-radius: 30px;
+  background: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50px;
+}
+
+.div-usuario{
+  height: 50px;
+  width: 100%;
+  display:flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.nome-pesquisado{
+  margin-left: 15px;
+  font-size: 15px;
+}
+
+.foto-pesquisada{
+  height: 100%;
+}
+
+#resultado{
+  width: 50%;
+}
+
+#informacoes{
+  height: 200px;
+  width: 40%;
+  background: lightgray;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
