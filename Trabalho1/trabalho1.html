@@ -40,7 +40,7 @@
     <div class="container">
       <div>
         <span>Red</span><br />
-        <input type="range" min="0" max="255" id="red" onchange="changeRed()" />
+        <input type="range" min="0" max="255" id="red" oninput="changeRed()" />
         <input
           type="text"
           class="display"
@@ -50,7 +50,13 @@
         />
         <br />
         <span>Green</span><br />
-        <input type="range" min="0" max="255" id="green" on="changeGreen()" />
+        <input
+          type="range"
+          min="0"
+          max="255"
+          id="green"
+          oninput="changeGreen()"
+        />
         <input type="text" class="display" id="display-green" readonly="true" />
         <br />
         <span>Blue</span><br />
@@ -59,7 +65,7 @@
           min="0"
           max="255"
           id="blue"
-          onchange="changeBlue()"
+          oninput="changeBlue()"
         />
         <input type="text" class="display" id="display-blue" readonly="true" />
         <br />

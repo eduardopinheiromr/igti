@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Segunda Aula IGTI</title>
+    <style>
+      body {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>User Countries</h1>
+
+    <div id="divUsers">Usuários</div>
+    <script defer>
+      console.log('DOM carregado');
+
+      let globalUsers = null;
+
+      async function start() {
+        await fetchUsers();
+      }
+
+      async function fetchUsers() {
+        const res = await fetch(/*falta a api*/);
+
+        const json = await res.json();
+
+        globalUsers = json.results.map(({ name, picture, nat }) => {
+          //Usei destructuring no name, picture, nat, deveria ser a variavel user
+          return {
+            userName: name.first,
+            userPicture: picture.large,
+            userCountry: nat,
+          };
+        });
+      }
+
+      async function fetchUsersCountries() {
+        const res = await fetch(/*falta a api*/);
+
+        const json = await res.json();
+
+        globalCountries = json.map(({ name, alpha2Code, flag }) => {
+          return {
+            counryName: name,
+            countryCode: alpha2Code,
+            countryFlag: flag,
+          };
+        });
+      }
+
+      function mergeUsersAndCountries() {
+        globalUsersAndCountries = [];
+
+        globalUsers.forEach((user) => {
+          const userCountry = globalCountries.find((country) => {
+            return counry.countryCode === user.userCountry;
+          });
+
+          globalUsersAndCountries.push({ ...user, ...userCountry });
+        });
+      }
+
+      function render() {
+        const divUsers = document.querySelector('#divUsers');
+
+        divUsers.innerHTML = `
+        <div>
+          ${globalUsersAndCountries
+            .map((item) => {
+              return `
+              <div>
+                <div>
+                  <img src='${item.userPicture}'/>
+                  <span>${item.userName}</span>
+                  <img src='${item.countryFlag}'>
+                </div>
+              </div>
+              `;
+            })
+            .join('')}
+          </div>
+        `;
+      }
+    </script>
+  </body>
+</html>
